@@ -23,7 +23,6 @@ class BaseModel
     {
         $this->pdo = null;
     }
-    // ... (Hàm __construct() và __destruct() giữ nguyên) ...
 
     // Hàm chung để thực thi truy vấn (SELECT *...)
     public function pdo_query_all($sql, $params = [])

@@ -1,24 +1,28 @@
 <?php
-// Kiểm tra login có quyền vào trang admin không
-// TODO
 $action = $_GET['action'] ?? '/';
 
 match ($action) {
+    //sản phẩm
     '/'         => (new ProductController)->dashboad(),
-    'list-product' => (new ProductController)->index(), // Hiển thị danh sách sản phẩm
-    'delete-product' => (new ProductController)->delete(), // Xóa sản phẩm
-    'show-product' => (new ProductController)->show(), // Hiển thị chi tiết sản phẩm
-    'create-product' => (new ProductController)->create(), // Hiển thị form tạo mới sản phẩm
-    'store-product' => (new ProductController)->store(), // Lưu sản phẩm vào CSDL
-    'edit-product'=> (new ProductController)->edit(), // Hiển thị form cập nhật sản phẩm
-    'update-product'=> (new ProductController)->update(), // Lưu thông tin sản phẩm cập nhật vào CSDL
-    'list-category' => (new CategoryController)->list(), // Hiển thị danh sách danh mục
-    'delete-category' => (new CategoryController)->delete(), // Xóa danh mục
-    'show-category' => (new CategoryController)->show(), // Hiển thị chi tiết danh mục
-    'create-category' => (new CategoryController)->create(), // Hiển thị form tạo mới danh mục
-    'store-category' => (new CategoryController)->store(), // Lưu danh mục vào CSDL
-    'edit-category'=> (new CategoryController)->edit(), // Hiển thị form cập nhật danh mục
-    'update-category'=> (new CategoryController)->update(), // Lưu thông tin danh mục cập nhật vào CSDL
-   
+    'list-product' => (new ProductController)->index(), 
+    'delete-product' => (new ProductController)->delete(),
+    'show-product' => (new ProductController)->show(), 
+    'create-product' => (new ProductController)->create(), 
+    'store-product' => (new ProductController)->store(), 
+    'edit-product'=> (new ProductController)->edit(),
+    'update-product'=> (new ProductController)->update(),
 
+    // danh mục 
+    'list-category' => (new CategoryController)->list(), 
+    'delete-category' => (new CategoryController)->delete(),
+    'show-category' => (new CategoryController)->show(),
+    'create-category' => (new CategoryController)->create(), 
+    'store-category' => (new CategoryController)->store(), 
+    'edit-category'=> (new CategoryController)->edit(), 
+    'update-category'=> (new CategoryController)->update(),
+
+    // users
+    'list-user' => (new UserController)->list(),
+    'delete-user' => (new UserController)->delete(),
+    'show-user' => (new UserController)->show(),
 };  

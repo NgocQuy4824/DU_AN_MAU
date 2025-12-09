@@ -9,7 +9,6 @@
 
             <div class="row align-items-start">
 
-                <!-- Ảnh sản phẩm -->
                 <div class="col-md-4 mb-3 text-center">
                     <?php 
                         $img = !empty($product['img']) 
@@ -22,7 +21,6 @@
                          style="max-height: 300px; object-fit: cover;">
                 </div>
 
-                <!-- Thông tin chi tiết -->
                 <div class="col-md-8">
 
                     <h3 class="fw-bold mb-3"><?= htmlspecialchars($product['name']) ?></h3>

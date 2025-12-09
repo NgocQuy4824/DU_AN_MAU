@@ -5,7 +5,6 @@ class CategoryController {
         $this->modelCategory = new Category();
     }
     public function list(){
-        // admin list view (use index.php in views/admin/category)
         $view = 'category/index';
         $title = 'Danh sách danh mục';
         $categories = $this->modelCategory->getAllCategories();

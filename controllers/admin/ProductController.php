@@ -39,7 +39,6 @@ class ProductController
         $old['quantily'] = isset($_POST['quantily']) ? trim($_POST['quantily']) : '';
         $old['img'] = '';
 
-        // Validation
         if ($old['name'] === '') {
             $errors['name'] = 'Tên sản phẩm là bắt buộc.';
         }
@@ -113,7 +112,6 @@ class ProductController
     public function delete() {
         $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
         if ($id > 0) {
-            // Optionally, you could check if product exists before deleting
             $this->modelProduct->delete($id);
         }
         header("Location: " . BASE_URL_ADMIN . "&action=list-product");

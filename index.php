@@ -26,9 +26,7 @@ require_once './configs/helper.php';
 // Điều hướng
 $mode = $_GET['mode'] ?? 'client';
 if ($mode == 'admin') {
-    // require đường dẫn của admin
     require_once './routes/admin.php';
 } else {
-    // require đường dẫn của client
     require_once './routes/client.php';
 }
