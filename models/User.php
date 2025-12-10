@@ -24,8 +24,28 @@ class User extends BaseModel{
 
     public function toggleActive($id, $status)
     {
-        $sql = "UPDATE {$this->table} SET active = :active WHERE id = :id";
-        return $this->pdo_execute($sql, ['active' => $status, 'id' => $id]);
+        $sql = "UPDATE {$this->table} SET is_admin = :is_admin WHERE id = :id";
+        return $this->pdo_execute($sql, ['is_admin' => $status, 'id' => $id]);
     }
+
+    public function findByEmail($email)
+{
+    $sql = "SELECT * FROM {$this->table} WHERE email = :email LIMIT 1";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute(['email' => $email]);
+    return $stmt->fetch();
+}
+
+public function createUser($name, $email, $password)
+{
+    $sql = "INSERT INTO {$this->table} (name, email, password, is_admin) 
+            VALUES (:name, :email, :password, 0)";
+    return $this->pdo_execute($sql, [
+        'name' => $name,
+        'email' => $email,
+        'password' => $password,
+    ]);
+}
+
 }
 ?>
