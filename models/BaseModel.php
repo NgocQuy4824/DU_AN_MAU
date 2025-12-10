@@ -44,7 +44,7 @@ class BaseModel
             $stmt = $this->pdo->prepare($sql);
             return $stmt->execute($params);
         } catch (PDOException $e) {
-            // Xử lý lỗi truy vấn (Ví dụ: ghi log)
+            // Xử lý lỗi truy vấn
             die("Lỗi truy vấn Execute: {$e->getMessage()}");
         }
     }

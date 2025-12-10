@@ -10,7 +10,7 @@ class AuthController
 
     public function login()
     {
-        $view = 'auth/login';
+        $view = '../auth/login';
         $title = 'Đăng nhập';
         require_once PATH_VIEW_MAIN_CLIENT;
     }
@@ -47,7 +47,7 @@ class AuthController
 
     public function register()
     {
-        $view = 'auth/register';
+        $view = '../auth/register';
         $title = 'Đăng ký tài khoản';
         require_once PATH_VIEW_MAIN_CLIENT;
     }
