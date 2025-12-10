@@ -28,7 +28,6 @@ class CategoryController {
             $errors['name'] = 'Tên danh mục là bắt buộc.';
         }
 
-        // optional: limit length
         if (strlen($name) > 255) {
             $errors['name'] = 'Tên danh mục không được quá 255 ký tự.';
         }
@@ -97,7 +96,7 @@ class CategoryController {
         exit;
     }
 
-    // Hiển thị danh mục và các sản phẩm thuộc danh mục (admin)
+    // Hiển thị danh mục và các sản phẩm thuộc danh mục
     public function show()
     {
         $id = isset($_GET['id']) ? intval($_GET['id']) : 0;

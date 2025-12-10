@@ -1,10 +1,11 @@
 <?php
-class Product extends BaseModel {
+class Product extends BaseModel
+{
 
     protected $table = 'products';
 
-    public function getAll() {
-        // alias pro.img as image so views expecting $product['image'] work
+    public function getAll()
+    {
         $sql = 'SELECT pro.*, pro.img AS image, cat.name AS cat_name 
             FROM `products` as pro
             JOIN categorys as cat ON pro.category_id = cat.id ORDER BY pro.id DESC;';
@@ -12,11 +13,10 @@ class Product extends BaseModel {
         $stmt->execute();
         return $stmt->fetchAll();
     }
-    
+
     // Lấy sản phẩm theo danh mục
     public function getByCategory($categoryId)
     {
-        // alias pro.img as image so views expecting $product['image'] work
         $sql = 'SELECT pro.*, pro.img AS image, cat.name AS cat_name 
             FROM `products` as pro
             JOIN categorys as cat ON pro.category_id = cat.id
@@ -56,13 +56,11 @@ class Product extends BaseModel {
         }
         return $this->pdo_execute($sql, $data);
     }
-    
-        // Xóa sản phẩm
+
+    // Xóa sản phẩm
     public function delete($id)
     {
         $sql = "DELETE FROM {$this->table} WHERE id = :id";
         return $this->pdo_execute($sql, ['id' => $id]);
     }
-
 }
-?>

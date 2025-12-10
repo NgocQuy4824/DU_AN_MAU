@@ -3,14 +3,17 @@
 class ProductController
 {
     public $modelProduct;
-    public function __construct(){
+    public function __construct()
+    {
         $this->modelProduct = new Product();
     }
-    public function dashboad() {
+    public function dashboad()
+    {
         $title = 'Đây là trang quản trị';
         require_once PATH_VIEW_MAIN_ADMIN;
     }
-    public function index() {
+    public function index()
+    {
         $view = 'product/index';
         $title = 'Danh sách Sản phẩm';
         // lấy danh sách từ csdl
@@ -64,7 +67,7 @@ class ProductController
         if (isset($_FILES['image']) && $_FILES['image']['error'] !== UPLOAD_ERR_NO_FILE) {
             $file = $_FILES['image'];
             if ($file['error'] === UPLOAD_ERR_OK) {
-                $allowed = ['image/jpeg','image/png','image/gif','image/webp'];
+                $allowed = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
                 $finfo = finfo_open(FILEINFO_MIME_TYPE);
                 $mime = finfo_file($finfo, $file['tmp_name']);
                 finfo_close($finfo);
@@ -94,7 +97,6 @@ class ProductController
             return;
         }
 
-        // Prepare data for insertion
         $data = [
             'category_id' => $old['category_id'],
             'name'        => $old['name'],
@@ -108,8 +110,9 @@ class ProductController
         header("Location: " . BASE_URL_ADMIN . "&action=list-product");
         exit();
     }
-    
-    public function delete() {
+
+    public function delete()
+    {
         $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
         if ($id > 0) {
             $this->modelProduct->delete($id);
@@ -117,7 +120,7 @@ class ProductController
         header("Location: " . BASE_URL_ADMIN . "&action=list-product");
         exit;
     }
-    
+
     // Hiển thị chi tiết sản phẩm
     public function show()
     {
@@ -185,7 +188,7 @@ class ProductController
         if (isset($_FILES['image']) && $_FILES['image']['error'] !== UPLOAD_ERR_NO_FILE) {
             $file = $_FILES['image'];
             if ($file['error'] === UPLOAD_ERR_OK) {
-                $allowed = ['image/jpeg','image/png','image/gif','image/webp'];
+                $allowed = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
                 $finfo = finfo_open(FILEINFO_MIME_TYPE);
                 $mime = finfo_file($finfo, $file['tmp_name']);
                 finfo_close($finfo);
@@ -237,5 +240,4 @@ class ProductController
         header("Location: " . BASE_URL_ADMIN . "&action=list-product");
         exit;
     }
-      
 }

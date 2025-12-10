@@ -25,12 +25,12 @@
                 <a class="nav-link text-uppercase" href="<?= BASE_URL_ADMIN ?>&action=list-category"><b>Quản lý danh mục</b></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-uppercase" href="<?= BASE_URL_ADMIN ?>&action=list-product"><b>Quản lý sản phẩm</b></a>  
+                <a class="nav-link text-uppercase" href="<?= BASE_URL_ADMIN ?>&action=list-product"><b>Quản lý sản phẩm</b></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-uppercase" href="<?= BASE_URL_ADMIN ?>&action=list-user"><b>Quản lý người dùng</b></a>
             </li>
-              <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link text-uppercase" href="#"><b>Thống kê</b></a>
             </li>
         </ul>

@@ -29,7 +29,7 @@
         <div class="row mb-3">
             <label class="col-sm-3 fw-bold">Quyền:</label>
             <div class="col-sm-9">
-                <?php if($data["is_admin"] == 1): ?>
+                <?php if ($data["is_admin"] == 1): ?>
                     <span class="badge bg-success">Admin</span>
                 <?php else: ?>
                     <span class="badge bg-secondary">User</span>
