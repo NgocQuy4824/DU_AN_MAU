@@ -1,11 +1,12 @@
 <?php
-class User extends BaseModel{
+class User extends BaseModel
+{
     protected $table = 'users';
 
     public function getAllUsers()
     {
         $sql = "SELECT * FROM {$this->table} ORDER BY id DESC";
-        return $this->pdo_query_all($sql); 
+        return $this->pdo_query_all($sql);
     }
 
     public function find($id)
@@ -29,23 +30,21 @@ class User extends BaseModel{
     }
 
     public function findByEmail($email)
-{
-    $sql = "SELECT * FROM {$this->table} WHERE email = :email LIMIT 1";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->execute(['email' => $email]);
-    return $stmt->fetch();
-}
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE email = :email LIMIT 1";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['email' => $email]);
+        return $stmt->fetch();
+    }
 
-public function createUser($name, $email, $password)
-{
-    $sql = "INSERT INTO {$this->table} (name, email, password, is_admin) 
+    public function createUser($name, $email, $password)
+    {
+        $sql = "INSERT INTO {$this->table} (name, email, password, is_admin) 
             VALUES (:name, :email, :password, 0)";
-    return $this->pdo_execute($sql, [
-        'name' => $name,
-        'email' => $email,
-        'password' => $password,
-    ]);
+        return $this->pdo_execute($sql, [
+            'name' => $name,
+            'email' => $email,
+            'password' => $password,
+        ]);
+    }
 }
-
-}
-?>

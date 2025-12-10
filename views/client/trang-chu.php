@@ -57,4 +57,5 @@
             <p>Không có sản phẩm mới.</p>
         <?php endif; ?>
     </div>
+
 </div>
