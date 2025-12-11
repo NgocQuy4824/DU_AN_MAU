@@ -16,9 +16,7 @@ class ProductController
     {
         $view = 'product/index';
         $title = 'Danh sách Sản phẩm';
-        // lấy danh sách từ csdl
         $data = $this->modelProduct->getAll();
-        // var_dump($data);
         require_once PATH_VIEW_MAIN_ADMIN;
     }
     public function create()
@@ -29,7 +27,7 @@ class ProductController
         require PATH_VIEW_MAIN_ADMIN;
     }
 
-    // Lưu dữ liệu thêm mới
+   
     public function store()
     {
         $errors = [];
